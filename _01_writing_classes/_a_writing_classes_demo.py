@@ -30,7 +30,7 @@ class Duck(Animal):
     # This is a constructor! It's called when an object of this class
     # is created. The 'self' variable is always the first input parameter
     # and is used to create instance variables and call methods.
-    def __init__(self, name):
+    def __init__(self, name, speed, quack_volume):
 
         Duck.num_ducks_created = Duck.num_ducks_created + 1
 
@@ -38,7 +38,8 @@ class Duck(Animal):
         # the constructor
         self.new_instance_variable = 'A new instance variable!'
         self.name = name
-
+        self.speed = speed
+        self.quack_volume = quack_volume
         # This is a local variable and can only be used in the constructor
         new_local_variable = 'A new local variable!'
 
@@ -49,12 +50,27 @@ class Duck(Animal):
     def initialize(self):
         # The instance variable can be used throughout the class
         print(self.name + ' the Duck was created!')
+    
+    def quack(self):
+        if self.quack_volume >= 50 and self.quack_volume <= 100:
+            print(self.name + ' quacks loudly.')
+        elif self.quack_volume >= 100:
+            print(self.name + ' quacks obnoxiously.')
+        else:
+            print(self.name + ' lets out a weak quack.')
 
+    def waddle(self):
+        if self.speed == 'Fast':
+            print(self.name + ' waddles quickly to its destination.')
+        else:
+            print(self.name + ' waddles slowly to its destination.')
 
 if __name__ == '__main__':
     # TODO 1) Create an object of the Duck class, for example
     #  kenny = Duck('Kenny')
-
+    kenny = Duck('Kenny', 'Fast', 50)
+    kenny.quack()
+    kenny.waddle()
     # TODO 2) Add 2 more input variables into the Duck constructor
 
     # TODO 3) Create 2 instance variables in the Duck class
@@ -64,7 +80,12 @@ if __name__ == '__main__':
 
     # TODO 5) Create 2 more Ducks with different names and call the methods
     #  created in the previous step
-
+    billy = Duck('Billy', 'Slow', 10)
+    billy.quack()
+    billy.waddle()
+    timmy = Duck('Timmy', 'Fast', 150)
+    timmy.waddle()
+    timmy.quack()
     if Duck.num_ducks_created < 3:
         print('There are only ' + str(Duck.num_ducks_created) + ' Ducks.')
         print('Create more Ducks!!!')

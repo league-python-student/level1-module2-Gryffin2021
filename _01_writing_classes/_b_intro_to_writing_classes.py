@@ -3,9 +3,19 @@ Introduction to writing classes
 """
 import unittest
 
-
 # TODO Create a class called student with the member variables and
 #  methods used in the test class below to make all the tests pass
+class Student():
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+    def do_homework():
+        self.homework_done = True
+    def going_to_school(start):
+        if start == '':
+            return self.name + 'is leaving for school at 7 am'
+        else:
+            return self.name + 'is leaving for school at ' + start
 
 
 # ================== DO NOT MODIFY THE CODE BELOW ============================
